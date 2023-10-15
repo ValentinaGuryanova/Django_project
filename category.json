@@ -1,0 +1,47 @@
+[
+  {
+    "model":"catalog.category",
+    "pk":8,
+    "fields":{
+      "name":"ёырфюёЄш",
+      "description":"╥юЁЄ√, яшЁюцэ√х, ъюэЇхЄ√, яхўхэ№х.",
+      "created_at":"2023-10-15T20:19:08.497Z"
+    }
+  },
+  {
+    "model":"catalog.category",
+    "pk":9,
+    "fields":{
+      "name":"ьюыюўэ√х яЁюфєъЄ√",
+      "description":"╠юыюъю, щюуєЁЄ, ъхЇшЁ, ё√Ё",
+      "created_at":"2023-10-15T20:19:08.497Z"
+    }
+  },
+  {
+    "model":"catalog.category",
+    "pk":10,
+    "fields":{
+      "name":"ЇЁєъЄ√",
+      "description":"",
+      "created_at":"2023-10-15T20:19:08.497Z"
+    }
+  },
+  {
+    "model":"catalog.category",
+    "pk":11,
+    "fields":{
+      "name":"ь ёэ√х яЁюфєъЄ√",
+      "description":"╠ ёю, ъюысрёр, эрЁхчъш",
+      "created_at":"2023-10-15T20:19:08.497Z"
+    }
+  },
+  {
+    "model":"catalog.category",
+    "pk":12,
+    "fields":{
+      "name":"ютю∙ш",
+      "description":"",
+      "created_at":"2023-10-15T20:48:13.271Z"
+    }
+  }
+]
