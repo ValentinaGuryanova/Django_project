@@ -7,19 +7,19 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         product_list = [
-            {'name': 'яблоко', 'description': 'свежее зеленое яблоко', 'image': '', 'category': 'фрукт', 'price': '80', 'data_create': '', 'data_last_change': ''},
-            {'name': 'апельсин', 'description': 'сочный мароко', 'image': '', 'category': 'фрукт', 'price': '70', 'data_create': '', 'data_last_change': ''},
-            {'name': 'торт', 'description': 'бисквитный с фруктовой начинкой', 'image': '', 'category': 'сладости', 'price': '300', 'data_create': '', 'data_last_change': ''},
-            {'name': 'конфеты', 'description': 'птичье молоко', 'image': '', 'category': 'сладости', 'price': '50', 'data_create': '', 'data_last_change': ''},
-            {'name': 'молоко', 'description': 'топленое молоко 3.5', 'image': '', 'category': 'молочные продукты', 'price': '100', 'data_create': '', 'data_last_change': ''},
-            {'name': 'йогурт', 'description': 'с клубничным вкусом', 'image': '', 'category': 'молочные продукты', 'price': '70', 'data_create': '', 'data_last_change': ''},
+            {'name': 'apples', 'description': 'red apples', 'image': '/products/apples.jpeg', 'category': 'fruits', 'price': '80', 'data_create': '', 'data_last_change': ''},
+            {'name': 'oranges', 'description': 'marroko', 'image': '/products/oranges.jpg', 'category': 'fruits', 'price': '70', 'data_create': '', 'data_last_change': ''},
+            {'name': 'cake', 'description': 'bisquit with fruit', 'image': '/products/cake.jpg', 'category': 'sweets', 'price': '300', 'data_create': '', 'data_last_change': ''},
+            {'name': 'candies', 'description': 'bird milk', 'image': '/products/candy.jpg', 'category': 'sweets', 'price': '50', 'data_create': '', 'data_last_change': ''},
+            {'name': 'milk', 'description': 'yellow milk 3.5', 'image': '/products/milk.jpeg', 'category': 'milk', 'price': '100', 'data_create': '', 'data_last_change': ''},
+            {'name': 'yogurt', 'description': 'with strawberry', 'image': '/products/jjogurt.jpg', 'category': 'milk', 'price': '70', 'data_create': '', 'data_last_change': ''},
         ]
 
         category_list = [
-            {'name': 'сладости', 'description': 'Торты, пирожные, конфеты, печенье.', 'created_at': ''},
-            {'name': 'молочные продукты', 'description': 'Молоко, йогурт, кефир, сыр', 'created_at': ''},
-            {'name': 'фрукты', 'description': '', 'created_at': ''},
-            {'name': 'мясные продукты', 'description': 'Мясо, колбаса, нарезки', 'created_at': ''},
+            {'name': 'sweets', 'description': 'Cake, capcake, sweets, bisquits', 'created_at': ''},
+            {'name': 'milk', 'description': 'milk, cheese, eggs, yogurt', 'created_at': ''},
+            {'name': 'fruits', 'description': '', 'created_at': ''},
+            {'name': 'meat', 'description': 'meat, chicken, fish', 'created_at': ''},
         ]
 
         # for product_item in product_list:
