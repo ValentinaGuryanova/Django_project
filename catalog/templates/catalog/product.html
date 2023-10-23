@@ -6,14 +6,18 @@
               <div class="card mb-4 box-shadow">
                 <img class="card-img-top"
                      src="{{ object.image|mymedia }}"
-                     src="{% my_media object.image %}"
+                     {# scr="{% my_media object.image %}" #}
                      alt="{{ object.description }}">
                 <div class="card-body">
                   <p class="card-text">{{object|title}}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                        <a href="#" type="button"
+                           class="btn btn-sm btn-outline-secondary">View</a>
+                        <a href="#" type="button"
+                           class="btn btn-sm btn-outline-secondary">Edit</a>
+                        <a href="#" type="button"
+                           class="btn btn-sm btn-outline-danger">Delete</a>
                     </div>
                   </div>
                 </div>
