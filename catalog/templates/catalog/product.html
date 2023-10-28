@@ -2,7 +2,7 @@
 {% load my_tags %}
 {% block content %}
     <div class="col-12 mb-5">
-        <a class="btn btn-outline-primary" href="#">Добавить товар</a>
+        <a class="btn btn-outline-primary" href="{% url 'catalog:create_product' %}">Добавить товар</a>
     </div>
             {% for object in object_list %}
             <div class="col-md-4">
@@ -11,15 +11,15 @@
                      src="{{ object.image|mymedia }}"
                      alt="{{ object.description }}">
                 <div class="card-body">
-                  <p class="card-text">{{object|title}}</p>
+                  <p class="card-text">{{object.name}}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <a href="{% url 'catalog:view_product' object.pk %}" type="button"
+                        <a href="#}" type="button"
                            class="btn btn-sm btn-outline-secondary">View</a>
-                        <a href="#" type="button"
+                        <a href="{% url 'catalog:update_product' object.pk %}" type="button"
                            class="btn btn-sm btn-outline-secondary">Edit</a>
                         <a href="#" type="button"
-                           class="btn btn-sm btn-outline-danger">Delete</a>
+                           class="btn btn-sm btn-outline-secondary">Delete</a>
                     </div>
                   </div>
                 </div>
