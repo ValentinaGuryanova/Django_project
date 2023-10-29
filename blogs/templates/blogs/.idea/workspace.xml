@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0a34603d-7403-483f-8995-d60c06c84454" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../users/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../users/management/commands/csu.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../users/templates/users/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../users/templates/users/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../users/templates/users/user_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../migrations/0002_blogs_delete_blog_record.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../migrations/0003_alter_blogs_is_publish_alter_blogs_slug.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../migrations/0004_alter_blogs_slug.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../catalog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../catalog/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../catalog/management/commands/fill.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../catalog/management/commands/fill.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../catalog/management/commands/fills.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../catalog/management/commands/fills.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../catalog/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../catalog/migrations/0002_category_created_at.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../catalog/migrations/0003_alter_category_created_at_alter_product_category_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../catalog/migrations/0004_alter_product_category.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../catalog/migrations/0005_alter_product_category.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../catalog/migrations/0006_alter_product_category.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../catalog/migrations/0007_alter_category_created_at.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../catalog/migrations/0008_alter_product_category_alter_product_image.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../catalog/migrations/0009_alter_product_category_alter_product_image.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../catalog/migrations/0010_blog_record.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../catalog/migrations/0011_delete_blog_record.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../catalog/migrations/0012_alter_product_category.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../catalog/migrations/0013_version.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../catalog/migrations/0014_alter_version_options.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../catalog/templates/catalog/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../catalog/templates/catalog/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../catalog/templates/catalog/includes/inc_catalog_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../catalog/templates/catalog/includes/inc_catalog_menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../catalog/templates/catalog/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../catalog/templates/catalog/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../category.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../category.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../config/urls.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="2XRpJpMPU88yu08Tj237aY82nvX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "develop",
+    "last_opened_file_path": "C:/Users/gurya/PycharmProjects/Django_project/blogs/templates/blogs"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0a34603d-7403-483f-8995-d60c06c84454" name="Changes" comment="" />
+      <created>1698601677789</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1698601677789</updated>
+    </task>
+    <servers />
+  </component>
+</project>

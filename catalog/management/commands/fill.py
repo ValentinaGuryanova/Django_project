@@ -12,10 +12,10 @@ class Command(BaseCommand):
         Category.objects.all().delete()
 
         category_list = [
-            {'name': 'fruits'},
-            {'name': 'Sweets'},
-            {'name': 'Meat'},
-            {'name': 'Drinks'},
+            {'name': 'fruits', 'created_at': ''},
+            {'name': 'Sweets', 'created_at': ''},
+            {'name': 'Meat', 'created_at': ''},
+            {'name': 'Drinks', 'created_at': ''},
         ]
 
         for category_item in category_list:
