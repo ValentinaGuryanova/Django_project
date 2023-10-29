@@ -33,7 +33,7 @@ class BlogsDetailView(DetailView):
 
     def get_object(self, queryset=None):
         self.object = super().get_object(queryset)
-        self.object.count_view +=1
+        self.object.count_view += 1
         self.object.save()
         return self.object
 
@@ -53,6 +53,7 @@ class BlogsUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse('blogs:view', args=[self.kwargs.get('pk')])
+
 
 class BlogsDeleteView(DeleteView):
     model = Blogs

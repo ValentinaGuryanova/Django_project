@@ -32,6 +32,11 @@
                         {% if not forloop.last %}
                             <hr>
                         {% endif %}
+                    {% for version in object.version_set.all %}
+                    {% if version.is_active %}
+                    <p>Текущая версия: {{ version.number }}</p>
+                    {% endif %}
+                    {% endfor %}
                     {% endfor %}
                 </div>
                 <div class="card-footer"></div>
