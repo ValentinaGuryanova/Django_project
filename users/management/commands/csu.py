@@ -15,5 +15,5 @@ class Command(BaseCommand):
             is_superuser=True
         )
 
-        user.set_password('12345')
+        user.set_password('123459876')
         user.save()
