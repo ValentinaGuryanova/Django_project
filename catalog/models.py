@@ -22,7 +22,6 @@ class Product(models.Model):
     name = models.CharField(max_length=100, verbose_name='наименование')
     description = models.TextField(max_length=500, verbose_name='описание', **NULLABLE)
     image = models.ImageField(upload_to='products/', verbose_name='изображение', **NULLABLE)
-    #category = models.CharField(max_length=100, verbose_name='категория')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='категория')
     price = models.IntegerField(verbose_name='цена за покупку')
     data_create = models.DateField(auto_now_add=True, verbose_name='дата создания')
@@ -30,6 +29,10 @@ class Product(models.Model):
 
     def __str__(self):
         return f'{self.name} {self.price} {self.description[0:100]}'
+
+    @property
+    def active_version(self):
+        return Version.objects.filter(is_active=True, product_id=self.id).first()
 
     class Meta:
         verbose_name = 'продукт'

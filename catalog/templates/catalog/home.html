@@ -4,15 +4,15 @@
     <h5 class="my-0 mr-md-auto font-weight-normal">Меню</h5>
     <nav class="ms-5">
         <ul class="list-unstyled">
-            <a href="{% url 'catalog:home' %}" class="text-black">Главная</a>
-            <a href="{% url 'catalog:contacts' %}" class="text-black">Контакты</a>
-            <a href="{% url 'catalog:product' %}" class="text-black">Каталог</a>
+            <a href="{% url 'catalog:contacts' %}" class="btn btn-outline-primary">Контакты</a>
+            <a href="{% url 'catalog:product' %}" class="btn btn-outline-primary">Каталог</a>
+            <a href="{% url 'blogs:list' %}" class="btn btn-outline-primary">Блог</a>
             {% if user.is_authenticated %}
-                <a href="{% url 'users:profile' %}" class="text-black">Профиль</a>
-                <a href="{% url 'users:logout' %}" class="text-black">Выйти</a>
+                <a href="{% url 'users:profile' %}" class="btn btn-outline-primary">Профиль</a>
+                <a href="{% url 'users:logout' %}" class="btn btn-outline-primary">Выйти</a>
             {% else %}
-                <a href="{% url 'users:login' %}" class="text-black">Войти</a>
-                <a href="{% url 'users:register' %}" class="text-black">Регистрация</a>
+                <a href="{% url 'users:login' %}" class="btn btn-outline-primary">Войти</a>
+                <a href="{% url 'users:register' %}" class="btn btn-outline-primary">Регистрация</a>
             {% endif %}
         </ul>
     </nav>

@@ -1,6 +1,6 @@
 from django.forms import inlineformset_factory
 from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, UpdateView, CreateView
 
 from catalog.forms import ProductForm, VersionForm
@@ -38,13 +38,27 @@ class ProductCreateView(CreateView):
     success_url = reverse_lazy('catalog:product')
 
     def get_context_data(self, **kwargs):
-        context_data = super().get_context_data(**kwargs)
-        VersionFormset = inlineformset_factory(Product, Version, form=VersionForm, extra=1)
-        if self.request.method == "POST":
-            context_data['formset'] = VersionFormset(self.request.POST)
-        else:
-            context_data['formset'] = VersionFormset()
-        return context_data
+
+        context = super().get_context_data(**kwargs)
+
+        for product in context['object_list']:
+            active_version = product.version_set.filter(is_current_version=True).first()
+            if active_version:
+                product.active_version_number = active_version.version_number
+                product.active_version_name = active_version.version_name
+            else:
+                product.active_version_number = None
+                product.active_version_name = None
+
+
+    # def get_context_data(self, **kwargs):
+    #     context_data = super().get_context_data(**kwargs)
+    #     VersionFormset = inlineformset_factory(Product, Version, form=VersionForm, extra=1)
+    #     if self.request.method == "POST":
+    #         context_data['formset'] = VersionFormset(self.request.POST)
+    #     else:
+    #         context_data['formset'] = VersionFormset()
+    #     return context_data
 
     def form_valid(self, form):
         formset = self.get_context_data()['formset']
@@ -81,5 +95,14 @@ class ProductUpdateView(UpdateView):
 
 
 class VersionListView(ListView):
-        model = Version
+    model = Version
+    form_class = VersionForm
 
+
+class VersionCreateView(CreateView):
+    model = Version
+    form_class = VersionForm
+
+    def get_success_url(self, *args, **kwargs):
+        product_pk = Product.objects.get(pk=self.kwargs.get('pk'))
+        return reverse('catalog:view_version', args=[product_pk.pk])
