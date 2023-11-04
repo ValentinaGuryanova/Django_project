@@ -37,36 +37,30 @@ class ProductCreateView(CreateView):
     form_class = ProductForm
     success_url = reverse_lazy('catalog:product')
 
-    def get_context_data(self, **kwargs):
-
-        context = super().get_context_data(**kwargs)
-
-        for product in context['object_list']:
-            active_version = product.version_set.filter(is_current_version=True).first()
-            if active_version:
-                product.active_version_number = active_version.version_number
-                product.active_version_name = active_version.version_name
-            else:
-                product.active_version_number = None
-                product.active_version_name = None
-
-
     # def get_context_data(self, **kwargs):
-    #     context_data = super().get_context_data(**kwargs)
-    #     VersionFormset = inlineformset_factory(Product, Version, form=VersionForm, extra=1)
-    #     if self.request.method == "POST":
-    #         context_data['formset'] = VersionFormset(self.request.POST)
-    #     else:
-    #         context_data['formset'] = VersionFormset()
-    #     return context_data
+    #
+    #     context = super().get_context_data(**kwargs)
+    #
+    #     for product in context['object_list']:
+    #         active_version = product.version_set.filter(is_current_version=True).first()
+    #         if active_version:
+    #             product.active_version_number = active_version.version_number
+    #             product.active_version_name = active_version.version_name
+    #         else:
+    #             product.active_version_number = None
+    #             product.active_version_name = None
+
+    # def form_valid(self, form):
+    #     formset = self.get_context_data()['formset']
+    #     self.object = form.save()
+    #     if formset.is_valid():
+    #         formset.instance = self.object
+    #         formset.save()
+    #
+    #     return super().form_valid(form)
 
     def form_valid(self, form):
-        formset = self.get_context_data()['formset']
-        self.object = form.save()
-        if formset.is_valid():
-            formset.instance = self.object
-            formset.save()
-
+        form.instance.owner = self.request.user
         return super().form_valid(form)
 
 

@@ -10,10 +10,10 @@ class UserRegisterForm(UserCreationForm):
         fields = ('email', 'password1', 'password2')
 
 
-class UserProfileForm(UserChangeForm):
+class UserForm(UserChangeForm):
     class Meta:
         model = User
-        fields = ('email', 'first_name', 'last_name', 'phone', 'avatar')
+        fields = ('email', 'password', 'first_name', 'last_name', 'phone', 'avatar')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
