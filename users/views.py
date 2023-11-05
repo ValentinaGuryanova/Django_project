@@ -1,5 +1,4 @@
 import random
-from random import randint
 
 from django.conf import settings
 from django.core.mail import send_mail
@@ -18,19 +17,17 @@ class RegisterView(CreateView):
     template_name = 'users/register.html'
 
     def form_valid(self, form):
-        verified_password = ''
-        for i in range(8):
-            i = randint(0, 9)
-            verified_password += str(i)
+        if form.is_valid():
+            verified_password = ''
+            for i in range(8):
+                verified_password += random.choice('0123456789')
 
             form.verified_password = verified_password
             user = form.save()
             user.verified_password = verified_password
-        # new_user = form.save()
             send_mail(
                 subject='Поздравляем с регистрацией!',
                 message=f'Подтвердите вашу регистрацию в SuperMarket, нажмите на ссылку: http://127.0.0.1:8000/users/verifying?code={user.verified_password}\n ',
-            # message='Вы зарегистрировались на нашей платформе, добро пожаловать!',
                 from_email=settings.EMAIL_HOST_USER,
                 recipient_list=[user.email]
             )
@@ -42,6 +39,8 @@ def verify_view(request):
     user = User.objects.get(verified_password=code)
     user.verified = True
     user.save()
+    if user.verified != code:
+        print('Код неверный')
     return render(request, 'users/verifying.html')
 
 
@@ -54,14 +53,14 @@ class ProfileView(UpdateView):
         return self.request.user
 
 
-def generate_new_password(request):
-    new_password = ''.join([str(random.randint(0,9)) for _ in range(12)])
-    send_mail(
-        subject='Вы сменили пароль',
-        message=f'Ваш новый пароль: {new_password}',
-        from_email=settings.EMAIL_HOST_USER,
-        recipient_list=[request.user.email]
-    )
-    request.user.set_password(new_password)
-    request.user.save()
-    return redirect(reverse('catalog:product'))
+# def generate_new_password(request):
+#     new_password = ''.join([str(random.randint(0,9)) for _ in range(12)])
+#     send_mail(
+#         subject='Вы сменили пароль',
+#         message=f'Ваш новый пароль: {new_password}',
+#         from_email=settings.EMAIL_HOST_USER,
+#         recipient_list=[request.user.email]
+#     )
+#     request.user.set_password(new_password)
+#     request.user.save()
+#     return redirect(reverse('catalog:product'))
