@@ -29,6 +29,7 @@ class Product(models.Model):
     data_create = models.DateField(auto_now_add=True, verbose_name='дата создания')
     data_last_change = models.DateField(auto_now=True, verbose_name='дата последнего изменения')
     owner = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
+    is_activ = models.BooleanField(default=False, **NULLABLE)
 
     def __str__(self):
         return f'{self.name} {self.price} {self.description[0:100]}'
