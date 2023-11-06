@@ -1,12 +1,16 @@
+from django.conf import settings
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.core.cache import cache
 from django.forms import inlineformset_factory
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
-from django.views.generic import ListView, UpdateView, CreateView, DeleteView
+from django.views.generic import ListView, UpdateView, CreateView, DeleteView, DetailView
 
 from catalog.forms import ProductForm, VersionForm
-from catalog.models import Product, Version
+from catalog.models import Product, Version, Category
+from catalog.services import get_cached_version_for_product
+
 
 @login_required
 def contacts(request):
@@ -34,6 +38,29 @@ class ProductListView(LoginRequiredMixin, ListView):
     model = Product
     template_name = 'catalog/product.html'
 
+    # def get_queryset(self):
+    #     return super().get_queryset().filter(
+    #         category=self.kwargs.get('pk'),
+    #         owner=self.request.user
+    #     )
+
+    # def get_context_data(self, *args, **kwargs):
+    #     context_data = super().get_context_data(*args, **kwargs)
+    #     category_item = Category.objects.get(pk=self.kwargs.get('pk'))
+    #     context_data['category_pk'] = category_item.pk
+    #     context_data['title'] = f'Продукты - вск категории {category_item.name}'
+    #     return context_data
+
+
+class ProductDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
+    model = Product
+    permission_required = 'catalog.view_product'
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['version'] = get_cached_version_for_product(self.object.pk)
+        return context_data
+
 
 class ProductCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Product
@@ -52,13 +79,13 @@ class ProductUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView)
     permission_required = 'catalog.change_product'
     success_url = reverse_lazy('catalog:product')
 
-    def get_queryset(self):
-        queryset = super().get_queryset().filter(
-            category=self.kwargs.get('pk'),
-        )
-        if not self.request.user.is_staff:
-            queryset = queryset.filter(owner=self.request.user)
-        return queryset
+    # def get_queryset(self):
+    #     queryset = super().get_queryset().filter(
+    #         category=self.kwargs.get('pk'),
+    #     )
+    #     if not self.request.user.is_staff:
+    #         queryset = queryset.filter(owner=self.request.user)
+    #     return queryset
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)

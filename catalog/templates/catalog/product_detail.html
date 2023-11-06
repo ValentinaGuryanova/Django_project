@@ -2,6 +2,9 @@
 {% block content %}
 <div class="col-12">
     <div class="row">
+        <div class="col-12">
+            <a href="{% url 'catalog:product' %}" class="btn btn-info">Назад</a>
+        </div>
         <div class="col-6">
             <div class="card">
                 <div class="card-header">
@@ -16,13 +19,31 @@
                             <td>{{ object.name }}</td>
                         </tr>
                         <tr>
+                            <td>Описание</td>
                             <td>{{ object.description }}</td>
                         </tr>
+                        <tr>
+                            <td>Цена</td>
+                            <td>{{ object.price }}</td>
+                        </tr>
                     </table>
-                    <div class="card-body">
-                              <p>{{ object.description }}</p>
-                              <a href="{% url 'catalog:product' %}" class="btn btn-info">Назад</a>
-                    </div>
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        Информация о версии товара
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        {% for version in version %}
+                        <li>{{ version }}</li>
+                        {% endfor %}
+                    </ul>
                 </div>
                 <div class="card-footer"></div>
             </div>
