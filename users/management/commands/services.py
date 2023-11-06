@@ -2,11 +2,13 @@ from random import random
 import random
 
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
+from django.http import request
 from django.shortcuts import redirect
 from django.urls import reverse
 
-
+@login_required
 def generate_new_password(request):
     new_password = ''.join([str(random.randint(0,9)) for _ in range(12)])
     send_mail(
@@ -18,3 +20,7 @@ def generate_new_password(request):
     request.user.set_password(new_password)
     request.user.save()
     return redirect(reverse('users:login'))
+
+
+def generate_verified_code():
+    pass
